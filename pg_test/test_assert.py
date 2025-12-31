@@ -131,16 +131,16 @@ def test_ct08_case_sensitive(page):
 #         page.screenshot(path="ct09_fail.png")
 
 
-# def test_ct10_logout(page):
-#     acessar_login(page)
-#     preencher_login(page, VALID_USER, VALID_PASS)
-#     page.wait_for_url("**/dashboard", timeout=5000)
-#     page.click("i.oxd-userdropdown-icon")
-#     page.click("text=Logout")
-#     page.wait_for_url("**/login", timeout=5000)
-#     assert "/login" in page.url, "Logout não redirecionou para login"
-#     if "/login" in page.url:
-#         log_result("CT-10", "PASS", "- Logout realizado")
-#     else:
-#         log_result("CT-10", "FAIL")
-#         page.screenshot(path="ct10_fail.png")
+def test_ct10_logout(page):
+    acessar_login(page)
+    preencher_login(page, VALID_USER, VALID_PASS)
+    page.wait_for_url("**/dashboard", timeout=5000)
+    page.click("i.oxd-userdropdown-icon")
+    page.click("text=Logout")
+    page.wait_for_url("**/login", timeout=5000)
+    assert "/login" in page.url, "Logout não redirecionou para login"
+    if "/login" in page.url:
+        log_result("CT-10", "PASS", "- Logout realizado")
+    else:
+        log_result("CT-10", "FAIL")
+        page.screenshot(path="ct10_fail.png")
